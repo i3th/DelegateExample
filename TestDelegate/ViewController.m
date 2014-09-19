@@ -62,4 +62,7 @@
   [self.tableView reloadData];
 }
 
+-(NSArray *)addUserViewControllerRequiredFields:(AddUserViewController *)controller {
+  return @[AUNameRequired,AUEmailRequired];
+}
 @end
