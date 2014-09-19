@@ -21,6 +21,10 @@
   self.users = [[NSMutableArray alloc] init];
 }
 
+- (IBAction)cancel:(UIStoryboardSegue *)segue {
+  // do nothing
+}
+
 #pragma mark - TableView
 #pragma mark DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
