@@ -73,6 +73,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="hLI-1M-uor"/>
+                    <connections>
+                        <outlet property="tableView" destination="dSy-mL-Cbl" id="kkN-Aw-5bb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="f89-UD-eYH" userLabel="Exit" sceneMemberID="exit"/>
