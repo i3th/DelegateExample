@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "UserProfile.h"
 
+@class AddUserViewController;
+
 @protocol AddUserViewControllerDelegate <NSObject>
 - (void)addUserViewController:(AddUserViewController *)controller addUser:(UserProfile *)user;
 @end
