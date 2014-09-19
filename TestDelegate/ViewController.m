@@ -7,23 +7,39 @@
 //
 
 #import "ViewController.h"
+#import "UserProfile.h"
 
-@interface ViewController ()
-
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *users;
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  self.users = [[NSMutableArray alloc] init];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - TableView
+#pragma mark DataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return [self.users count];
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+  UserProfile *user = self.users[indexPath.row];
+  cell.textLabel.text = user.name;
+  cell.detailTextLabel.text = user.email;
+  return cell;
+}
+
+#pragma mark Delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  UserProfile *user = self.users[indexPath.row];
+  NSString *message = [user.age stringValue];
+  [[[UIAlertView alloc] initWithTitle:@"User age" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]
+   show];
+}
 @end

@@ -46,6 +46,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="8Io-5N-Ktg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Gvu-Kt-K9x"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdT-RT-5sk">
                                 <rect key="frame" x="686" y="974" width="62" height="30"/>
