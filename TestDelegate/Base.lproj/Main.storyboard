@@ -58,7 +58,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HmL-bq-P0y" kind="modal" id="AG7-6L-CUD"/>
+                                    <segue destination="HmL-bq-P0y" kind="modal" identifier="Add User" id="AG7-6L-CUD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -140,7 +140,11 @@
                                                 <segue destination="f89-UD-eYH" kind="unwind" unwindAction="cancel:" id="UuN-IL-e5s"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Add" id="ZO9-xS-PjB"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" id="ZO9-xS-PjB">
+                                            <connections>
+                                                <action selector="addUser:" destination="HmL-bq-P0y" id="YZ5-b1-2eO"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -167,6 +171,11 @@
                             <constraint firstItem="zgo-Ww-vt1" firstAttribute="leading" secondItem="B8d-bU-Ucu" secondAttribute="leading" id="xTr-eD-cfv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ageFiled" destination="KmZ-LD-gm7" id="wJ6-fg-bEZ"/>
+                        <outlet property="emailField" destination="TRG-DV-qwi" id="bPe-td-haA"/>
+                        <outlet property="nameField" destination="71y-jB-GZJ" id="H0Y-MB-Oye"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yO0-pw-bdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

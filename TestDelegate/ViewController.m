@@ -8,8 +8,9 @@
 
 #import "ViewController.h"
 #import "UserProfile.h"
+#import "AddUserViewController.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, AddUserViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *users;
 @end
@@ -23,6 +24,13 @@
 
 - (IBAction)cancel:(UIStoryboardSegue *)segue {
   // do nothing
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"Add User"]) {
+    AddUserViewController *dst = (AddUserViewController *)segue.destinationViewController;
+    dst.delegate = self;
+  }
 }
 
 #pragma mark - TableView
@@ -46,4 +54,12 @@
   [[[UIAlertView alloc] initWithTitle:@"User age" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]
    show];
 }
+
+#pragma - mark AddUserViewControllerDelegate
+-(void)addUserViewController:(AddUserViewController *)controller addUser:(UserProfile *)user {
+  [self dismissViewControllerAnimated:YES completion:nil];
+  [self.users addObject:user];
+  [self.tableView reloadData];
+}
+
 @end

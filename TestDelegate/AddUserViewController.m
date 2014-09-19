@@ -9,6 +9,9 @@
 #import "AddUserViewController.h"
 
 @interface AddUserViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UITextField *ageFiled;
 
 @end
 
@@ -33,6 +36,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)addUser:(id)sender {
+  UserProfile *user = [[UserProfile alloc] init];
+  user.name = self.nameField.text;
+  user.email = self.emailField.text;
+  NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+  user.age = [formatter numberFromString:self.ageFiled.text];
+  [self.delegate addUserViewController:self addUser:user];
 }
 
 /*
