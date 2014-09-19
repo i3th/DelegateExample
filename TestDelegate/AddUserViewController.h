@@ -11,8 +11,14 @@
 
 @class AddUserViewController;
 
+extern const NSString *AUNameRequired;
+extern const NSString *AUEmailRequired;
+extern const NSString *AUAgeRequired;
+
 @protocol AddUserViewControllerDelegate <NSObject>
 - (void)addUserViewController:(AddUserViewController *)controller addUser:(UserProfile *)user;
+@optional
+- (NSArray *)addUserViewControllerRequiredFields:(AddUserViewController *)controller;
 @end
 
 @interface AddUserViewController : UIViewController
